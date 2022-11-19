@@ -1,11 +1,8 @@
 function init(getData) {
-    console.log('Init programs');
-    console.log(getData());
-
+    
+    const radioBtns = document.querySelectorAll('input[name="program"]');
     const {base, it, gov, zero} = getData().programs;
-    console.log(base);
-    console.log(it);
-
+    
     //Set program rates in radio buttons
     document.querySelector('#base-value').value = base;
     document.querySelector('#it-value').value = it;
@@ -17,6 +14,20 @@ function init(getData) {
     document.querySelector('#it-text').innerText = it * 100 + '%';
     document.querySelector('#gov-text').innerText = gov * 100 + '%';
     document.querySelector('#zero-text').innerText = zero * 100 + '%';
+
+    radioBtns.forEach(function(radioBtn) {
+        radioBtn.addEventListener('change', function () {
+            this.dispatchEvent(
+                new CustomEvent('updateForm', {
+                bubbles: true,
+                detail: {
+                    selectedProgram: parseFloat(this.value),
+                    onUpdate: 'radioProgram',
+                    id: this.id,
+                }
+            }))
+        });
+    });
 }
 
 export default init;

@@ -6,4 +6,11 @@ window.onload = function() {
     
     // Init programs
     programs(getData);
+
+    document.addEventListener('updateForm', (e) => {
+        console.log('FIRED!!!');
+        console.log(e.detail);
+
+        Model.setData(e.detail);
+    })
 };
