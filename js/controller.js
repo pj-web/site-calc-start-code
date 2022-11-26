@@ -12,5 +12,5 @@ window.onload = function() {
         console.log(e.detail);
 
         Model.setData(e.detail);
-    })
+    });
 };
