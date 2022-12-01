@@ -8,7 +8,7 @@ function init(getData) {
         numeral: true,
         numeralThausandsGroupStyle: 'thousand',
         delimiter: ' '
-    }
+    };
     
     const cleaveInput = new Cleave(input, settings);
     cleaveInput.setRawValue(data.cost);
@@ -23,7 +23,6 @@ function init(getData) {
         if (value >= data.minPrice && value <= data.maxPrice) {
             input.closest('.param__details').classList.remove('param__details--error');
         }
-
         // Обновить модель
         updateModel(input, {cost: value, onUpdate: 'inputCost'});
     });
