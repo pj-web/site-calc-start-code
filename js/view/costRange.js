@@ -13,7 +13,7 @@ function init(getData) {
             '50%': [10000000, 500000],
             max: data.maxPrice,
         },
-        format: wNubm({
+        format: wNumb({
             decimals: 0,
             thousand: ' ',
             suffix: '',
