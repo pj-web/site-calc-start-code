@@ -42,6 +42,8 @@ function init(getData) {
         // Обновить модель
         updateModel(input, {cost: +cleaveInput.getRawValue(), onUpdate: 'inputCost'});
     });
+
+    return cleaveInput;
 }
 
 export default init;

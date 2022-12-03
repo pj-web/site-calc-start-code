@@ -12,16 +12,32 @@ window.onload = function() {
     programs(getData);
 
     // Init cost input
-    costInput(getData);
-    costRange(getData);
+    const cleaveCost = costInput(getData);
+    const sliderCost = costRange(getData);
 
     document.addEventListener('updateForm', (e) => {
         Model.setData(e.detail);
         
         const data = Model.getData();
         const results = Model.getResults();
+
+        // Update all form view based on model
+        updateFormAndSliders(data);
         
         // Update results block
         updateResultsView(results);
     });
+
+    function updateFormAndSliders(data) {
+        // Cost input
+        if (data.onUpdate !== 'inputCost') {
+            console.log('UPDATE INPUT COST');
+            cleaveCost.setRawValue(data.cost);
+        }
+        // Cost slider
+        if (data.onUpdate !== 'costSlider') {
+            console.log('UPDATE COST SLIDER');
+            sliderCost.noUiSlider.set(data.cost);
+        }
+    }
 };
