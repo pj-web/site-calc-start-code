@@ -6,6 +6,13 @@ import { updateMinPercents } from "./view/utils.js";
 import costInput from "./view/costInput.js";
 import costRange from "./view/costRange.js";
 
+const text = 'Never forget what you are, for surely the world will not';
+const letters = length(text[0]);
+// BEGIN (write your solution here)
+console.log(letters);
+// END
+  
+
 window.onload = function() {
     const getData = Model.getData;
     
